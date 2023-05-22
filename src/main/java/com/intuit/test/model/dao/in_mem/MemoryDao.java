@@ -20,6 +20,7 @@ public class MemoryDao implements IDao {
     public MemoryDao(IReader<Player> reader){
         try {
             mappedPlayers= reader.readContent();
+            log.info("data readen from file succesfully, in mem mapped= {} entries",mappedPlayers.size());
         } catch (Exception e) {
             log.error("fatal error: cannot read file");
             throw new RuntimeException(e);

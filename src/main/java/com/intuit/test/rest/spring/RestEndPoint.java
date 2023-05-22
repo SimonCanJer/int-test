@@ -2,6 +2,7 @@ package com.intuit.test.rest.spring;
 
 import com.intuit.test.model.dao.api.IDao;
 import com.intuit.test.model.entities.Player;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -11,9 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
 @Controller()
+@Slf4j
 @RequestMapping(path="/api")
 public class RestEndPoint {
 
@@ -27,12 +28,14 @@ public class RestEndPoint {
      *          InternalError when it has been occured/
      */
     @GetMapping("/players")
-    ResponseEntity<Collection<Player>> allPlayers(){
+     ResponseEntity<Collection<Player>> allPlayers(){
         try{
             return ResponseEntity.ok(dao.allPlayers());
         }
         catch(Exception e){
+            log.error("exception in all players {} ",e.getMessage());
             return ResponseEntity.internalServerError().body(new ArrayList<Player>());
+
         }
     }
 
@@ -44,6 +47,7 @@ public class RestEndPoint {
      */
     @GetMapping("/players/{playerId}")
     ResponseEntity<Player> player(@PathVariable() String playerId){
+
         try{
             Player player= dao.get(playerId);
             if(player==null)
@@ -53,6 +57,7 @@ public class RestEndPoint {
             }
         }
         catch(Exception e){
+            log.error("excpetion in player retrieve {}", e.getMessage());
             return ResponseEntity.internalServerError().build();
         }
     }
