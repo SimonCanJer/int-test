@@ -11,7 +11,7 @@ import java.util.Collections;
 import java.util.Map;
 
 /**
- * DAO keeping data in memory as map(id->player) and
+ * DAO which keeping data in memory as map(id->player) and
  * simply returning object as a key of the map.
  */
 @Slf4j
@@ -20,7 +20,7 @@ public class MemoryDao implements IDao {
     public MemoryDao(IReader<Player> reader){
         try {
             mappedPlayers= reader.readContent();
-            log.info("data readen from file succesfully, in mem mapped= {} entries",mappedPlayers.size());
+            log.info("in mem mapping data readen from file succesfully,  mapped= {} entries",mappedPlayers.size());
         } catch (Exception e) {
             log.error("fatal error: cannot read file");
             throw new RuntimeException(e);
