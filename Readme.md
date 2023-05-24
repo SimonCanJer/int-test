@@ -49,7 +49,7 @@
 - For big amounts of data, the best model is: a scheduler service, which is updated with new versions of file, sends updates to service way of message queue( as Kafka). The data are inserted/removed to a K-V or relational  database. Removed entries must be  removed from cache also.
 
 ##     Project reorganization 
-- really project must be divided by modules, where all the buisness part (as interfaces, entities) must be in separated modules.
+- really project must be divided by modules, where all the buisness part (as interfaces, entities) must be in a separated modulee.
 - Spring inherent staff must be in modules, which depends on business layers.
 
 ##      Resources required for scalable, load ballanced and independent microservide implementation and test:
