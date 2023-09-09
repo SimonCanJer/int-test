@@ -13,5 +13,6 @@ data:
   logging.level.org.hibernate.type.descriptor.sql.BasicBinder: TRACE
   data.source.file: sources/player.csv
   config.data.source: com.intuit.test.source_read.config_spring
-  config.data.dao: com.intuit.test.model.dao.in_mem.config.spring
-  config.rest.endpoint: com.intuit.test.rest.spring
+  config.data.dao: com.intuit.test.model.in_mem_map.spring
+  config.rest.endpoint: com.intuit.test.controller.spring
+  image.source: unknown

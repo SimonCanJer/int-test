@@ -10,7 +10,7 @@
 
 ### Implementation in accordance to requirements.
 -  Data are readen from the CSV file and in current implementation are kept in in memory map, because files are not large at this moment and  the data can be kept in the JVM memory. Database+ cache will be needed for large volume of data, that can be achieved by replacing implementatiion of the IDao interface.
--  Data are returned by a controller class com.intuit.test.rest.spring.RestEndPoint. 
+-  Data are returned by a controller class com.intuit.test.controller.spring.RestEndPoint. 
 -  The /api/players GET request should have 200 reponse code. Alternativly the INTERNAL_SERVER_ERROR returned.
 -  The /api/player/{playerId} returns a player only when it is found and in thes case response code is 200. Otherwise the ERROR_NOT_FOUND returned response code .
 -  The port by default is 10101. It can be changed by means of the server.port property and ENV_SERVER_PORT environhment variable from outside
